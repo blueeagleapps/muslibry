@@ -14,26 +14,28 @@ public class Song {
     private String genre;
     private String ismn;
     private String year;
-    private String recordLabel;
+
+    @ManyToOne
+    private Publisher publisher;
 
     @ManyToMany
     private Set<Artist> artists = new HashSet<>();
+
     public Song() {
     }
-    public Song(String title, String genre, String ismn, String year, String recordLabel) {
+    public Song(String title, String genre, String ismn, String year, Publisher publisher) {
         this.title = title;
         this.genre = genre;
         this.ismn = ismn;
         this.year = year;
-        this.recordLabel = recordLabel;
+        this.publisher = publisher;
     }
-
-    public Song(String title, String genre, String ismn, String year, String recordLabel, Set<Artist> artists) {
+    public Song(String title, String genre, String ismn, String year, Publisher publisher, Set<Artist> artists) {
         this.title = title;
         this.genre = genre;
         this.ismn = ismn;
         this.year = year;
-        this.recordLabel = recordLabel;
+        this.publisher = publisher;
         this.artists = artists;
     }
 
@@ -69,14 +71,6 @@ public class Song {
         this.year = year;
     }
 
-    public String getRecordLabel() {
-        return recordLabel;
-    }
-
-    public void setRecordLabel(String recordLabel) {
-        this.recordLabel = recordLabel;
-    }
-
     public Set<Artist> getArtists() {
         return artists;
     }
@@ -93,6 +87,14 @@ public class Song {
         this.id = id;
     }
 
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
     @Override
     public String toString() {
         return "Song{" +
@@ -101,8 +103,7 @@ public class Song {
                 ", genre='" + genre + '\'' +
                 ", ismn='" + ismn + '\'' +
                 ", year='" + year + '\'' +
-                ", recordLabel='" + recordLabel + '\'' +
-                ", artists=" + artists +
+                ", publisher=" + publisher +
                 '}';
     }
 }
