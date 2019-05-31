@@ -2,24 +2,44 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
     <title>All artists</title>
 </head>
 <body>
-<h1>All artists</h1>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>FirstName</th>
-        <th>LastName</th>
-        <th>Nick</th>
-    </tr>
-    <tr th:each="artist : ${artists}">
-        <td th:text="${artist.id}">123</td>
-        <td th:text="${artist.firstName}">Mister</td>
-        <td th:text="${artist.lastName}">Kononowicz</td>
-        <td th:text="${artist.nick}">Destroyer</td>
-    </tr>
-</table>
+<div class="container-fluid" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">All Artists</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+                                <th>ID</th>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Nick</th>
+                            </thead>
+                            <tr th:each="artist : ${artists}">
+                                <td th:text="${artist.id}">123</td>
+                                <td th:text="${artist.firstName}">Mister</td>
+                                <td th:text="${artist.lastName}">Kononowicz</td>
+                                <td th:text="${artist.nick}">Destroyer</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
