@@ -1,6 +1,5 @@
 package com.example.muslibry5k.controllers;
 
-import com.example.muslibry5k.model.Song;
 import com.example.muslibry5k.repositories.SongRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +19,6 @@ public class SongController {
 
         model.addAttribute("songs", songRepository.findAll());
 
-        return "songs";
+        return "song/list";
     }
 }

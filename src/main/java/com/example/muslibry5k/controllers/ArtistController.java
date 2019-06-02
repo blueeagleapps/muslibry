@@ -19,6 +19,6 @@ public class ArtistController {
 
         model.addAttribute("artists", artistRepository.findAll());
 
-        return "artists";
+        return "artist/list";
     }
 }
