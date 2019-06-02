@@ -12,7 +12,7 @@
     <artifactId>muslibry5k</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>muslibry5k</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Muslibry5k spring boot project for edu purposes</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -20,8 +20,8 @@
 
     <dependencies>
         <dependency>
-            <groupId></groupId>
-            <artifactId></artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
