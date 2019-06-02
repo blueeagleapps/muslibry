@@ -24,16 +24,19 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead class="thead-inverse">
-                                    <th>ID</th>
                                     <th>Title</th>
                                     <th>Publisher</th>
                                     <th>Year</th>
+                                    <th>Actions</th>
                                 </thead>
                                 <tr th:each="song : ${songs}">
-                                    <td th:text="${song.id}">123</td>
                                     <td th:text="${song.title}">A great pretender</td>
                                     <td th:text="${song.publisher.name}">EMI</td>
-                                    <td th:text="${song.year}">19882</td>
+                                    <td th:text="${song.year}">1998</td>
+                                    <td>
+                                        <a href="#" th:href="@{'/songs/' + ${song.id} + '/show'}" style="margin-right: 5px;">View</a>
+                                        <a href="#" th:href="@{'/songs/' + ${song.id} + '/delete'}">Delete</a>
+                                    </td>
                                 </tr>
                             </table>
                         </div>

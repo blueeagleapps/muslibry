@@ -16,9 +16,7 @@ public class ArtistController {
 
     @RequestMapping("/artists")
     public String getArtists(Model model) {
-
         model.addAttribute("artists", artistRepository.findAll());
-
         return "artist/list";
     }
 }
