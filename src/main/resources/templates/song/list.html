@@ -34,8 +34,8 @@
                                     <td th:text="${song.publisher.name}">EMI</td>
                                     <td th:text="${song.year}">1998</td>
                                     <td>
-                                        <a href="#" th:href="@{'/songs/' + ${song.id} + '/show'}" style="margin-right: 5px;">View</a>
-                                        <a href="#" th:href="@{'/songs/' + ${song.id} + '/delete'}">Delete</a>
+                                        <a href="#" th:href="@{'/song/' + ${song.id} + '/show'}" style="margin-right: 5px;">View</a>
+                                        <a href="#" th:href="@{'/song/' + ${song.id} + '/delete'}">Delete <small style="color: #f44;"><i>(not safe)</i></small></a>
                                     </td>
                                 </tr>
                             </table>

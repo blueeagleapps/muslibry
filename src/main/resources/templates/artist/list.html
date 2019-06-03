@@ -27,12 +27,17 @@
                                 <th>FirstName</th>
                                 <th>LastName</th>
                                 <th>Nick</th>
+                                <th>Actions</th>
                             </thead>
                             <tr th:each="artist : ${artists}">
                                 <td th:text="${artist.id}">123</td>
                                 <td th:text="${artist.firstName}">Mister</td>
                                 <td th:text="${artist.lastName}">Kononowicz</td>
                                 <td th:text="${artist.nick}">Destroyer</td>
+                                <td>
+                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/show'}" style="margin-right: 5px;">View</a>
+                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/delete'}">Delete</a>
+                                </td>
                             </tr>
                         </table>
                     </div>

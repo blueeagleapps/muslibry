@@ -15,20 +15,19 @@ public class SongController {
         this.songRepository = songRepository;
     }
 
-    @RequestMapping("/songs")
+    @RequestMapping(value = {"/songs" , "song/list"})
     public String getSongs(Model model) {
         model.addAttribute("songs", songRepository.findAll());
         return "song/list";
     }
 
-    @RequestMapping("/songs/{id}/show")
+    @RequestMapping("/song/{id}/show")
     public String getSongDetails(Model model, @PathVariable("id") Long id) {
         model.addAttribute("song", songRepository.findById(id).get());
-        model.addAttribute("sonsss");
         return "song/show";
     }
 
-    @RequestMapping("/songs/{id}/delete")
+    @RequestMapping("/song/{id}/delete")
     public String deleteSong(@PathVariable("id") Long id) {
         songRepository.deleteById(id);
         return "redirect:/songs";
