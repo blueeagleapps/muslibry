@@ -36,7 +36,8 @@
                                 <td th:text="${artist.nick}">Destroyer</td>
                                 <td>
                                     <a href="#" th:href="@{'/artist/' + ${artist.id} + '/show'}" style="margin-right: 5px;">View</a>
-                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/delete'}">Delete</a>
+                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/songs'}" style="margin-right: 5px;">Songs</a>
+                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/delete'}">Delete <small style="color: #f44;"><i>(not safe)</i></small></a>
                                 </td>
                             </tr>
                         </table>

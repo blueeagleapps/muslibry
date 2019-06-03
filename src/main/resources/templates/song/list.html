@@ -10,7 +10,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <title>Your songs</title>
+    <title>Your songs <span th:if="${filter} != null" th:text="'filtered by ' + ${filter}"></span></title>
 </head>
 <body>
     <div class="container-fluid" style="margin-top: 20px;">
@@ -18,7 +18,7 @@
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title">My Songs:</h1>
+                        <h1 class="panel-title">Songs <span th:if="${filter} != null" th:text="'filtered by ' + ${filter}"></span></h1>
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
@@ -35,7 +35,7 @@
                                     <td th:text="${song.year}">1998</td>
                                     <td>
                                         <a href="#" th:href="@{'/song/' + ${song.id} + '/show'}" style="margin-right: 5px;">View</a>
-                                        <a href="#" th:href="@{'/song/' + ${song.id} + '/delete'}">Delete <small style="color: #f44;"><i>(not safe)</i></small></a>
+                                        <a href="#" th:href="@{'/song/' + ${song.id} + '/delete'}">Delete</a>
                                     </td>
                                 </tr>
                             </table>
