@@ -1,12 +1,15 @@
 package com.example.muslibry5k.controllers;
 
+import com.example.muslibry5k.commands.ArtistCommand;
+import com.example.muslibry5k.commands.SongCommand;
+import com.example.muslibry5k.converters.ArtistCommandToArtist;
 import com.example.muslibry5k.model.Artist;
+import com.example.muslibry5k.model.Song;
 import com.example.muslibry5k.repositories.ArtistRepository;
 import com.example.muslibry5k.repositories.SongRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -16,6 +19,7 @@ public class ArtistController {
 
     private ArtistRepository artistRepository;
     private SongRepository songRepository;
+    private ArtistCommandToArtist artistCommandToArtist;
 
     public ArtistController(ArtistRepository artistRepository, SongRepository songRepository) {
         this.artistRepository = artistRepository;
@@ -53,5 +57,28 @@ public class ArtistController {
     public String deleteArtist(@PathVariable("id") Long id) {
         artistRepository.deleteById(id);
         return "redirect:/artists";
+    }
+
+    @GetMapping
+    @RequestMapping("/artist/new")
+    public String newSong(Model model){
+        model.addAttribute("artist", new ArtistCommand());
+        return "artist/addedit";
+    }
+
+    @PostMapping("artist")
+    public String saveOrUpdate(@ModelAttribute ArtistCommand command){
+
+        Optional<Artist> artistOptional = artistRepository.getFirstByFirstNameAndLastName(command.getFirstName(), command.getLastName());
+
+        if (!artistOptional.isPresent()) {
+            Artist detachedArtist = artistCommandToArtist.convert(command);
+            Artist savedArtist = artistRepository.save(detachedArtist);
+            return "redirect:/artist/" + savedArtist.getId() + "/show";
+        } else {
+            //TODO: error message to template
+            System.out.println("Sorry, there's such artist in db");
+            return "redirect:/artist/" + artistOptional.get().getId() + "/show";
+        }
     }
 }

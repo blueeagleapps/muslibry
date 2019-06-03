@@ -9,7 +9,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
-    <title>All artists</title>
+    <title>All publishers</title>
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 20px;">
@@ -17,27 +17,26 @@
         <div class="col-md-6 col-md-offset-3">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h1 class="panel-title">All Artists</h1>
+                    <h1 class="panel-title">All Publishers</h1>
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-hover">
                             <thead class="thead-inverse">
-                                <th>ID</th>
-                                <th>FirstName</th>
-                                <th>LastName</th>
-                                <th>Nick</th>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>NIP</th>
+                                <th>Address</th>
                                 <th>Actions</th>
                             </thead>
-                            <tr th:each="artist : ${artists}">
-                                <td th:text="${artist.id}">123</td>
-                                <td th:text="${artist.firstName}">Mister</td>
-                                <td th:text="${artist.lastName}">Kononowicz</td>
-                                <td th:text="${artist.nick}">Destroyer</td>
+                            <tr th:each="publisher : ${publishers}">
+                                <td th:text="${publisherStat.index}+1">123</td>
+                                <td th:text="${publisher.name}">The Great Company</td>
+                                <td th:text="${publisher.nip}">890-909-22-11</td>
+                                <td th:text="${publisher.address}">900 Sthacca St., 90888 Auralis, CD</td>
                                 <td>
-                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/show'}" style="margin-right: 5px;">View</a>
-                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/songs'}" style="margin-right: 5px;">Songs</a>
-                                    <a href="#" th:href="@{'/artist/' + ${artist.id} + '/delete'}">Delete <small style="color: #f44;"><i>(not safe)</i></small></a>
+                                    <a href="#" th:href="@{'/publisher/' + ${publisher.id} + '/show'}" style="margin-right: 5px;">View</a>
+                                    <a href="#" th:href="@{'/publisher/' + ${publisher.id} + '/delete'}">Delete <small style="color: #f44;"><i>(not safe)</i></small></a>
                                 </td>
                             </tr>
                         </table>
@@ -52,7 +51,7 @@
                 <input onclick='javascript:window.history.back()' value='Back' type='button' class="btn btn-default"/>
             </div>
             <div class="col-md-1 col-md-offset-10">
-                <a href="#" th:href="@{'/artist/new'}" role="button" class="btn btn-success">Add</a>
+                <a href="#" th:href="@{'/publisher/new'}" role="button" class="btn btn-success">Add</a>
             </div>
         </div>
     </div>

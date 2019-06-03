@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <title>Muslibry main page</title>
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Muslibry</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">
+                    <div class="form-group">
+                        <input type="text" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Muslibry is alive!</h1>
+            <p>This is an educational project for exceptional students willing to learn Java and Spring to build different fantastic apps. Muslibry is community music manager which features are not yet known! Help us find some :)</p>
+            <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+            <div class="col-md-3">
+                <h2>Songs</h2>
+                <p>The main part of whole app.
+                <ul>
+                    <li><a href="#" th:href="@{'/song/list'}" style="margin-right: 5px;">List</a>all of your songs</li>
+                    <li><a href="#" th:href="@{'/song/new'}" style="margin-right: 5px;">Add new</a>song</li>
+                </ul>
+                Planned:
+                <ul>
+                    <li>manage more</li>
+                    <li>support images</li>
+                    <li>links to public records</li>
+                </ul>
+                <p><a class="btn btn-default" href="#" role="button" th:href="@{'/songs/'}" >All Songs &raquo;</a></p>
+            </div>
+            <div class="col-md-3">
+                <h2>Artists</h2>
+                <p>Artists you chose!</p>
+                <ul>
+                    <li><a href="#" th:href="@{'/artist/list'}" style="margin-right: 5px;">List</a>all of your artists</li>
+                    <li><a href="#" th:href="@{'/artist/new'}" style="margin-right: 5px;">Add new</a>artist</li>
+                </ul>
+                Planned:
+                <ul>
+                    <li>manage more</li>
+                    <li>support images</li>
+                    <li>links to public records</li>
+                </ul>
+                <p><a class="btn btn-default" href="#" role="button" th:href="@{'/artists/'}" >All Artists &raquo;</a></p>
+            </div>
+            <div class="col-md-3">
+                <h2>Publishers</h2>
+                <p>Publisher of your music.</p>
+                <ul>
+                    <li><a href="#" th:href="@{'/artist/list'}" style="margin-right: 5px;">List</a>all publishers</li>
+                    <li><a href="#" th:href="@{'/artist/new'}" style="margin-right: 5px;">Add new</a>publisher</li>
+                </ul>
+                Planned:
+                <ul>
+                    <li>manage more</li>
+                    <li>support images</li>
+                    <li>links to public sites</li>
+                </ul>
+                <p><a class="btn btn-default" href="#" role="button" th:href="@{'/publishers/'}" >All Publishers &raquo;</a></p>
+            </div>
+            <div class="col-md-3">
+                <h2>Integrations</h2>
+                <p>Integrations to go!</p>
+                <ul>
+                    <li><a href="#" th:href="@{'/spotify/search'}" style="margin-right: 5px;">Search Spotify</a> and import (in progress)</li>
+                    <li><a href="#" th:href="@{'/libry/search'}" style="margin-right: 5px;">Search Libry</a>and import (planned)</li>
+                </ul>
+                Planned:
+                <ul>
+                    <li>Spotify imports</li>
+                    <li>Libry imports</li>
+                    <li>Others: Apple Music, Google Music (more?, Last.fm?)</li>
+                </ul>
+                <p><a class="btn btn-default" href="#" role="button" th:href="@{'/'}" >Integrations (in progres) &raquo;</a></p>
+            </div>
+        </div>
+
+        <hr>
+
+        <footer>
+            <p>&copy; 2019 NoCodeX, LLC.</p>
+        </footer>
+    </div> <!-- /container -->
+</body>
+</html>
