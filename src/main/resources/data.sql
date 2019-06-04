@@ -1,4 +1,5 @@
 INSERT INTO PUBLISHER (ID, ADDRESS, NAME, NIP) VALUES ( 111, 'Unknown', 'Unknown', 'Unknown' );
+INSERT INTO PUBLISHER (ID, ADDRESS, NAME, NIP) VALUES ( 211, 'Spotify: NDA', 'Spotify: NDA', 'Spotify: NDA' );
 INSERT INTO PUBLISHER (ID, ADDRESS, NAME, NIP) VALUES ( 110, '700 The Awesome Street, 50900 Some City, CA', 'The Fake Awesome', '999-123-12-33' );
 
 INSERT INTO ARTIST VALUES (110, 'John', 'Bon Jovi', 'Jovi');

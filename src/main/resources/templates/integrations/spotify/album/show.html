@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify: Album details</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px;">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-primary">
+
+                <div class="panel-heading">
+                    <h1 class="panel-title" th:text="${album.name} + '  [Spotify album details]'">Spotify: Album details (song list)</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(tracks)}">
+                        <table class="table table-hover">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>No</th>
+                                <th>Name</th>
+                                <th>Popularity</th>
+                                <th>Artist</th>
+                                <th>Duration</th>
+                            </tr>
+                            </thead>
+                            <tr th:each="track : ${tracks}">
+                                <td th:text="${track.trackNumber}">11</td>
+                                <td th:text="${track.name}">A day at the races</td>
+                                <td th:text="${album.popularity}">Popular</td>
+                                <td th:text="${track.artists[0].name}">Freddie Mercury</td>
+                                <td th:text="${track.durationMs}">3:12</td>
+                                <td>
+                                    <a href="#" th:href="@{'/spotify/album/' + ${album.id} + '/show'}" style="margin-right: 5px;">Show</a>
+                                    <!--                                    <a href="#" th:href="@{'/songs/' + ${song.id} + '/delete'}">Delete</a>-->
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <form th:action="@{'/spotify/album/' + ${album.id} + '/save'}" method="get">
+                        <input type="submit" value="Import all">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

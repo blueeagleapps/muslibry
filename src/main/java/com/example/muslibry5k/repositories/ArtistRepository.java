@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface ArtistRepository extends CrudRepository<Artist, Long> {
     Optional<Artist> getFirstByFirstNameAndLastName(String firstName, String lastName);
+    Optional<Artist> getFirstByFirstName(String firstName);
 }

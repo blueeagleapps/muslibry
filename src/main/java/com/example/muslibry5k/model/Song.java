@@ -35,4 +35,11 @@ public class Song {
         this.year = year;
         this.publisher = publisher;
     }
+
+    public Song(String title, String genre, String ismn, String year) {
+        this.title = title;
+        this.genre = genre;
+        this.ismn = ismn;
+        this.year = year;
+    }
 }
